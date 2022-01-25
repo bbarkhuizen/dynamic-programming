@@ -20,8 +20,45 @@
     return gridTraveler(rows-1,columns) + gridTraveler(rows,columns-1);
  }
 
- console.log(gridTraveler(1,1).toString()); // 1
- console.log(gridTraveler(2,2).toString()); // 2
- console.log(gridTraveler(2,3).toString()); // 3
+ /**
+  * Grid Traveller Solution using memoization.
+  *         O(m * n) time
+  *         O(n + m) space
+  * @param rows Number of rows in the grid.
+  * @param columns Number of columns in the grid.
+  * @param memo memo to store results.
+  * @returns number of ways you can travel through the grid.
+  * @returns 
+  */
+ function gridTravelerMemo(rows: number, columns : number, memo: any = {}) : number {
+    const key : string = rows + ',' + columns;
+    if (key in memo) return memo[key];
+    if (rows === 1 && columns === 1) return 1;
+    if (rows === 0 || columns === 0) return 0;
+
+    memo[key] = gridTravelerMemo(rows-1,columns, memo) + gridTravelerMemo(rows,columns-1, memo);
+    return memo[key]
+ }
+
+
+// ---------------------------------------------------------------------------------------------
+const rowMax : number = 10;
+const colMax : number = 20;
+
+for (let r : number = 1; r <= rowMax; r++){
+    for (let c : number = 1; c <= colMax; c++) {
+        console.log(`rows: ${r}, columns:${c} : `,gridTraveler(r,c).toLocaleString());
+    }
+}
+
+for (let r : number = 1; r <= rowMax; r++){
+    for (let c : number = 1; c <= colMax; c++) {
+        console.log(`rows: ${r}, columns:${c} : `,gridTravelerMemo(r,c).toLocaleString());
+    }
+}
+
+// ---------------------------------------------------------------------------------------------
+
+ 
 
  

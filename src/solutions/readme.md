@@ -7,3 +7,4 @@ __Example run command__
 
 * [Fibonacci](fibonacci.ts)
 * [Grid Traveller](grid-traveller.ts)
+* [Can Sum](can-sum.ts)

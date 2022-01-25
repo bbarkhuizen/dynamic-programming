@@ -1,2 +1,3 @@
 # dynamic-programming
-This is a test another test
+See some of the [solutions](src/solutions)
+

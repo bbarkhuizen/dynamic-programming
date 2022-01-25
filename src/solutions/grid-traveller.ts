@@ -15,8 +15,8 @@
   * @returns number of ways you can travel through the grid.
   */
  function gridTraveler(rows: number, columns : number) : number {
-    if (rows === 1 && columns === 1) return 1;
-    if (rows === 0 || columns === 0) return 0;
+    if (rows === 1 && columns === 1) return 1; // base case, 1x1 grid has 1 possible solution.
+    if (rows === 0 || columns === 0) return 0; // base case 0x0 grid has no solution.
     return gridTraveler(rows-1,columns) + gridTraveler(rows,columns-1);
  }
 
@@ -31,12 +31,11 @@
   * @returns 
   */
  function gridTravelerMemo(rows: number, columns : number, memo: any = {}) : number {
-    const key : string = rows + ',' + columns;
-    if (key in memo) return memo[key];
-    if (rows === 1 && columns === 1) return 1;
-    if (rows === 0 || columns === 0) return 0;
-
-    memo[key] = gridTravelerMemo(rows-1,columns, memo) + gridTravelerMemo(rows,columns-1, memo);
+    const key : string = rows + ',' + columns; // create key for memo
+    if (key in memo) return memo[key]; // have we already calculated for the key?
+    if (rows === 1 && columns === 1) return 1; // base case, 1x1 grid has 1 possible solution.
+    if (rows === 0 || columns === 0) return 0; // base case 0x0 grid has no solution.
+    memo[key] = gridTravelerMemo(rows-1,columns, memo) + gridTravelerMemo(rows,columns-1, memo); // store the value.
     return memo[key]
  }
 

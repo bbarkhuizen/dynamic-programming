@@ -10,8 +10,8 @@
  * @returns the fibonacci number at the nth index.
  */
 function fibonacci(n: number) : number { // O(2^n) S(n)
-    if (n === 0) return 0;
-    if (n === 1 || n === 2) return 1;
+    if (n === 0) return 0; // base case n = 0 always is 0
+    if (n === 1 || n === 2) return 1; // base case n = 1 or n = 2, results in fib of 1
     return fibonacci(n-1) + fibonacci(n-2);
 }
 
@@ -24,12 +24,10 @@ function fibonacci(n: number) : number { // O(2^n) S(n)
  * @returns the fibonacci number at the nth index.
  */
 function fibonacciMemo(n: number, memo : any = {}) : number {
-    if (n in memo ) return memo[n] as number;
-    if (n === 0) return 0;
-    if (n === 1 || n === 2) return 1;
-    
-    memo[n] = fibonacciMemo(n-1, memo) + fibonacciMemo(n-2, memo);
-
+    if (n in memo ) return memo[n] as number; // if we have stored the result, then let's use it. 
+    if (n === 0) return 0; // base case n = 0 always is 0
+    if (n === 1 || n === 2) return 1; // base case n = 1 or n = 2, results in fib of 1    
+    memo[n] = fibonacciMemo(n-1, memo) + fibonacciMemo(n-2, memo); // store the result for later use.
     return memo[n];
 }    
 

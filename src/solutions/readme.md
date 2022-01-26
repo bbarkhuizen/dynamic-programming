@@ -10,3 +10,4 @@ __Example run command__
 * [Can Sum](can-sum.ts)
 * [How Sum](how-sum.ts)
 * [Best Sum](best-sum.ts)
+* [Can Construct](can-construct.ts)

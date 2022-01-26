@@ -74,15 +74,18 @@ function bestSum(targetSum : number, numbers: number[]) : ArrayOrNull {
     return shortestCombination;
 }
 
-console.log((new Date()).toString());
+console.log((new Date()).toTimeString());
 
 console.log('bestSum',bestSum(7,[5, 3, 4, 7])); // [7]
 console.log('bestSum',bestSum(8,[2, 3, 5])); // [3,5]
 console.log('bestSum',bestSum(8,[1, 4, 5])); // [4,4]
 console.log('BestSum',bestSum(300,[7, 14]));
+//console.log('BestSum',bestSum(100,[1, 2, 5, 25]));
+console.log((new Date()).toTimeString());
 
 console.log('bestSumMemo',bestSumMemo(7,[5, 3, 4, 7])); // [7]
 console.log('bestSumMemo',bestSumMemo(8,[2, 3, 5])); // [3,5]
 console.log('bestSumMemo',bestSumMemo(8,[1, 4, 5])); // [4,4]
 console.log('BestSumMemo',bestSumMemo(300,[7, 14]));
-
+//console.log('BestSumMemo',bestSumMemo(100,[1, 2, 5, 25]));
+console.log((new Date()).toTimeString());

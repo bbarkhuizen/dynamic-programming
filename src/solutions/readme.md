@@ -12,3 +12,4 @@ __Example run command__
 * [Best Sum](best-sum.ts)
 * [Can Construct](can-construct.ts)
 * [Count Construct](count-construct.ts)
+* [All Construct](all-construct.ts)

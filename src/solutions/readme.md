@@ -9,3 +9,4 @@ __Example run command__
 * [Grid Traveller](grid-traveller.ts)
 * [Can Sum](can-sum.ts)
 * [How Sum](how-sum.ts)
+* [Best Sum](best-sum.ts)

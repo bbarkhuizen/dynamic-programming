@@ -9,7 +9,7 @@
  * bestSum(8, [2,3,5]) = [3,5]
  */
 
- type ArrayOrNull = number[] | null;
+ export type ArrayOrNull = number[] | null;
 /**
  * Find the best, least, amount of numbers to sum up to the targetSum, if any.
  *      m = targetSum; n = numbers.length
@@ -19,7 +19,7 @@
  * @param numbers combination of numbers to analyze.
  * @returns optimal amount of numbers or null.
  */
-function bestSum(targetSum : number, numbers: number[]) : ArrayOrNull {
+ export function bestSum(targetSum : number, numbers: number[]) : ArrayOrNull {
     
 
     if (targetSum === 0) return []; // base case, if there is a perfect sum.
@@ -51,7 +51,7 @@ function bestSum(targetSum : number, numbers: number[]) : ArrayOrNull {
  * @param memo memoize storage
  * @returns optimal amount of numbers or null.
  */
- function bestSumMemo(targetSum : number, numbers: number[], memo: any = {}) : ArrayOrNull {
+ export function bestSumMemo(targetSum : number, numbers: number[], memo: any = {}) : ArrayOrNull {
     
     if (targetSum in memo) return memo[targetSum];
     if (targetSum === 0) return []; // base case, if there is a perfect sum.
@@ -74,18 +74,18 @@ function bestSum(targetSum : number, numbers: number[]) : ArrayOrNull {
     return shortestCombination;
 }
 
-console.log((new Date()).toTimeString());
+// console.log((new Date()).toTimeString());
 
-console.log('bestSum',bestSum(7,[5, 3, 4, 7])); // [7]
-console.log('bestSum',bestSum(8,[2, 3, 5])); // [3,5]
-console.log('bestSum',bestSum(8,[1, 4, 5])); // [4,4]
-console.log('BestSum',bestSum(300,[7, 14]));
-//console.log('BestSum',bestSum(100,[1, 2, 5, 25]));
-console.log((new Date()).toTimeString());
+// console.log('bestSum',bestSum(7,[5, 3, 4, 7])); // [7]
+// console.log('bestSum',bestSum(8,[2, 3, 5])); // [3,5]
+// console.log('bestSum',bestSum(8,[1, 4, 5])); // [4,4]
+// console.log('BestSum',bestSum(300,[7, 14]));
+// //console.log('BestSum',bestSum(100,[1, 2, 5, 25]));
+// console.log((new Date()).toTimeString());
 
-console.log('bestSumMemo',bestSumMemo(7,[5, 3, 4, 7])); // [7]
-console.log('bestSumMemo',bestSumMemo(8,[2, 3, 5])); // [3,5]
-console.log('bestSumMemo',bestSumMemo(8,[1, 4, 5])); // [4,4]
-console.log('BestSumMemo',bestSumMemo(300,[7, 14]));
-//console.log('BestSumMemo',bestSumMemo(100,[1, 2, 5, 25]));
-console.log((new Date()).toTimeString());
+// console.log('bestSumMemo',bestSumMemo(7,[5, 3, 4, 7])); // [7]
+// console.log('bestSumMemo',bestSumMemo(8,[2, 3, 5])); // [3,5]
+// console.log('bestSumMemo',bestSumMemo(8,[1, 4, 5])); // [4,4]
+// console.log('BestSumMemo',bestSumMemo(300,[7, 14]));
+// //console.log('BestSumMemo',bestSumMemo(100,[1, 2, 5, 25]));
+// console.log((new Date()).toTimeString());

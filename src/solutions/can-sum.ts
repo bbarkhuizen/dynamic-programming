@@ -18,7 +18,7 @@
  * @param numbers the array of numbers that we want to test.
  * @returns returns true if successful. 
  */
-function canSum(total: number, numbers: number[]) : boolean {
+ export function canSum(total: number, numbers: number[]) : boolean {
     if (total === 0) return true;
     if (total < 0) return false;
     for (let i = 0; i < numbers.length; i++) {
@@ -37,7 +37,7 @@ function canSum(total: number, numbers: number[]) : boolean {
  * @param memo the memo to cache results in
  * @returns returns true if successful. 
  */
- function canSumMemo(total: number, numbers: number[], memo : any = {}) : boolean {
+ export function canSumMemo(total: number, numbers: number[], memo : any = {}) : boolean {
     if (total in memo) return memo[total];
     if (total === 0) return true;
     if (total < 0) return false;
@@ -50,7 +50,7 @@ function canSum(total: number, numbers: number[]) : boolean {
     return false;
 }
 
-console.log(canSumMemo(7,[5,3,4,7])); // true
-console.log(canSumMemo(7,[6,5])); // false
-console.log(canSumMemo(7,[6,7])); // false
-console.log(canSumMemo(300,[7,14])); // false
+// console.log(canSumMemo(7,[5,3,4,7])); // true
+// console.log(canSumMemo(7,[6,5])); // false
+// console.log(canSumMemo(7,[6,7])); // false
+// console.log(canSumMemo(300,[7,14])); // false

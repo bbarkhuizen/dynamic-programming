@@ -14,7 +14,7 @@
  * @param wordbank Bank of words to construct target
  * @returns 2d Array of all combinations
  */
-function allConstruct(target: string, wordBank : string[]) : string[][] {
+ export function allConstruct(target: string, wordBank : string[]) : string[][] {
     if (target==='') return [[]];
 
     let result : string[][] = [];
@@ -39,7 +39,7 @@ function allConstruct(target: string, wordBank : string[]) : string[][] {
  * @param wordbank Bank of words to construct target
  * @returns 2d Array of all combinations
  */
- function allConstructMemo(target: string, wordBank : string[], memo : any = {}) : string[][] {
+ export function allConstructMemo(target: string, wordBank : string[], memo : any = {}) : string[][] {
      if (target in memo) return memo[target];
     if (target==='') return [[]];
 
@@ -56,17 +56,17 @@ function allConstruct(target: string, wordBank : string[]) : string[][] {
     return result;
 }
 
-console.log((new Date()).toTimeString());
-console.log(allConstruct('skateboard',['skate','beard'])) // 0
-console.log(allConstruct('abcdef',['ab','abc','cd','def','abcd','ef','c'])) // 4
-console.log(allConstruct('hello',['h','e','ll','o','hello','he','llo'])) // 5
-console.log(allConstruct('purple',['purp','p','ur','le','purpl'])) // 2
-console.log(allConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
-console.log((new Date()).toTimeString());console.log((new Date()).toTimeString());
+// console.log((new Date()).toTimeString());
+// console.log(allConstruct('skateboard',['skate','beard'])) // 0
+// console.log(allConstruct('abcdef',['ab','abc','cd','def','abcd','ef','c'])) // 4
+// console.log(allConstruct('hello',['h','e','ll','o','hello','he','llo'])) // 5
+// console.log(allConstruct('purple',['purp','p','ur','le','purpl'])) // 2
+// console.log(allConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
+// console.log((new Date()).toTimeString());console.log((new Date()).toTimeString());
 
-console.log(allConstructMemo('skateboard',['skate','beard'])) // 0
-console.log(allConstructMemo('abcdef',['ab','abc','cd','def','abcd','ef','c'])) // 4
-console.log(allConstructMemo('hello',['h','e','ll','o','hello','he','llo'])) // 5
-console.log(allConstructMemo('purple',['purp','p','ur','le','purpl'])) // 2
-console.log(allConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
-console.log((new Date()).toTimeString());console.log((new Date()).toTimeString());
+// console.log(allConstructMemo('skateboard',['skate','beard'])) // 0
+// console.log(allConstructMemo('abcdef',['ab','abc','cd','def','abcd','ef','c'])) // 4
+// console.log(allConstructMemo('hello',['h','e','ll','o','hello','he','llo'])) // 5
+// console.log(allConstructMemo('purple',['purp','p','ur','le','purpl'])) // 2
+// console.log(allConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
+// console.log((new Date()).toTimeString());console.log((new Date()).toTimeString());

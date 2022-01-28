@@ -16,7 +16,7 @@
  * @param wordbank bank of words to use to build target.
  * @returns true if successful.
  */
- function canConstruct(target: string, wordbank : string[]) : boolean {
+ export function canConstruct(target: string, wordbank : string[]) : boolean {
     // Depth of tree is m (target.length)
     // For time: each level (m) has n children, n^m
     if (target === '') return true;
@@ -39,7 +39,7 @@
  * @param memo memo to cache results.
  * @returns true if successful.
  */
- function canConstructMemo(target: string, wordbank : string[], memo: any = {}) : boolean {
+ export function canConstructMemo(target: string, wordbank : string[], memo: any = {}) : boolean {
     if (target in memo) return memo[target];
     if (target === '') return true;
     
@@ -57,13 +57,13 @@
     return false;    
 }
 
-console.log((new Date()).toTimeString());
-console.log(canConstruct('abcdef',['ab','ef','cd'])) // true
-console.log(canConstruct('hello',['h','e','ll','b'])) // false
-console.log(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // false
-console.log((new Date()).toTimeString());console.log((new Date()).toTimeString());
+// console.log((new Date()).toTimeString());
+// console.log(canConstruct('abcdef',['ab','ef','cd'])) // true
+// console.log(canConstruct('hello',['h','e','ll','b'])) // false
+// console.log(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // false
+// console.log((new Date()).toTimeString());console.log((new Date()).toTimeString());
 
-console.log(canConstructMemo('abcdef',['ab','ef','cd'])) // true
-console.log(canConstructMemo('hello',['h','e','ll','b'])) // false
-console.log(canConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // false
-console.log((new Date()).toTimeString());
+// console.log(canConstructMemo('abcdef',['ab','ef','cd'])) // true
+// console.log(canConstructMemo('hello',['h','e','ll','b'])) // false
+// console.log(canConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // false
+// console.log((new Date()).toTimeString());

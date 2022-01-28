@@ -15,7 +15,7 @@
  * @param wordbank bank of words to be used
  * @returns number of ways we can construct the string using the bank.
  */
-function countConstruct(target: string, wordbank: string[]) : number {
+ export function countConstruct(target: string, wordbank: string[]) : number {
     if (target === '') return 1;
 
     let count : number = 0;
@@ -38,7 +38,7 @@ function countConstruct(target: string, wordbank: string[]) : number {
  * @param wordbank bank of words to be used
  * @returns number of ways we can construct the string using the bank.
  */
- function countConstructMemo(target: string, wordbank: string[], memo: any = {}) : number {
+ export function countConstructMemo(target: string, wordbank: string[], memo: any = {}) : number {
     if (target in memo) return memo[target];
     if (target === '') return 1;
 
@@ -53,18 +53,18 @@ function countConstruct(target: string, wordbank: string[]) : number {
     return count;
 }
 
-console.log((new Date()).toTimeString());
-console.log(countConstruct('abcdef',['ab','ef','cd','abc','def'])) // 2
-console.log(countConstruct('hello',['h','e','ll','o','hello','he','llo'])) // 5
-console.log(countConstruct('purple',['purp','p','ur','le','purpl'])) // 2
-console.log(countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
-console.log((new Date()).toTimeString());
+// console.log((new Date()).toTimeString());
+// console.log(countConstruct('abcdef',['ab','ef','cd','abc','def'])) // 2
+// console.log(countConstruct('hello',['h','e','ll','o','hello','he','llo'])) // 5
+// console.log(countConstruct('purple',['purp','p','ur','le','purpl'])) // 2
+// console.log(countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
+// console.log((new Date()).toTimeString());
 
-console.log(countConstructMemo('abcdef',['ab','ef','cd','abc','def'])) // 2
-console.log(countConstructMemo('hello',['h','e','ll','o','hello','he','llo'])) // 5
-console.log(countConstructMemo('purple',['purp','p','ur','le','purpl'])) // 2
-console.log(countConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
-console.log(countConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeee',['e','ee','eee','eeee','eeeee'])) // ?
-console.log((new Date()).toTimeString());
+// console.log(countConstructMemo('abcdef',['ab','ef','cd','abc','def'])) // 2
+// console.log(countConstructMemo('hello',['h','e','ll','o','hello','he','llo'])) // 5
+// console.log(countConstructMemo('purple',['purp','p','ur','le','purpl'])) // 2
+// console.log(countConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
+// console.log(countConstructMemo('eeeeeeeeeeeeeeeeeeeeeeeeeeeee',['e','ee','eee','eeee','eeeee'])) // ?
+// console.log((new Date()).toTimeString());
 
-//console.log(countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?
+// //console.log(countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeef',['e','ee','eee','eeee','eeeee'])) // ?

@@ -15,7 +15,7 @@
  * @param numbers number of values to add
  * @returns the array of valid options.
  */
-function howSum(targetSum: number, numbers:number[]) : number[] | null{
+ export function howSum(targetSum: number, numbers:number[]) : number[] | null{
     if (targetSum === 0) return [];
     if (targetSum < 0) return null;
 
@@ -37,7 +37,7 @@ function howSum(targetSum: number, numbers:number[]) : number[] | null{
  * @param numbers number of values to add
  * @returns the array of valid options.
  */
- function howSumMemo(targetSum: number, numbers:number[], memo :any={}) : number[] | null{
+ export function howSumMemo(targetSum: number, numbers:number[], memo :any={}) : number[] | null{
     if (targetSum in memo) return memo[targetSum];
     if (targetSum === 0) return [];
     if (targetSum < 0) return null;
@@ -55,12 +55,12 @@ function howSum(targetSum: number, numbers:number[]) : number[] | null{
     return memo[targetSum];
 }
 
-console.log('howSum',howSum(7,[2,3]));
-console.log('howSumMemo',howSumMemo(7,[2,3]));
+// console.log('howSum',howSum(7,[2,3]));
+// console.log('howSumMemo',howSumMemo(7,[2,3]));
 
-console.log('howSum',howSum(7,[5,3,4,7]));
-console.log('howSumMemo',howSumMemo(7,[5,3,4,7]));
+// console.log('howSum',howSum(7,[5,3,4,7]));
+// console.log('howSumMemo',howSumMemo(7,[5,3,4,7]));
 
-console.log('howSum',howSum(300,[7, 14]));
-console.log('howSumMemo',howSumMemo(300,[7, 14]));
+// console.log('howSum',howSum(300,[7, 14]));
+// console.log('howSumMemo',howSumMemo(300,[7, 14]));
 

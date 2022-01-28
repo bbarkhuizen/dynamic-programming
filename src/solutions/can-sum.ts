@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { checkAllEqual } from './helper';
+
 /**
  * PROBLEM
  * 
@@ -50,7 +53,42 @@
     return false;
 }
 
-// console.log(canSumMemo(7,[5,3,4,7])); // true
-// console.log(canSumMemo(7,[6,5])); // false
-// console.log(canSumMemo(7,[6,7])); // false
-// console.log(canSumMemo(300,[7,14])); // false
+/**
+ * Check if any combindation of the numbers array can be summed up to the total using tabulation.
+ *      O(m*n) time
+ *      O(m) space
+ * @param total the total to be summed up to.
+ * @param numbers the array of numbers that we want to test.
+ * @returns returns true if successful. 
+ */
+ export function canSumTab(total: number, numbers: number[]) : boolean {
+    let tab : boolean[] = new Array<boolean>(total+1).fill(false);
+    tab[0] = true;
+    for(let totalIndex = 0; totalIndex<= total; totalIndex++){
+        if (tab[totalIndex]) { // if we have a true, then set the forward items true.
+            for(let numbersIndex = 0; numbersIndex < numbers.length; numbersIndex++) { // now loop through the numbers
+                let forwardIndex = numbers[numbersIndex] + totalIndex; // get the forward index for each.
+                if (forwardIndex <= total) { // if we are still inside the table then set the forward value to true.
+                    tab[forwardIndex] = true;
+                }
+            }
+    
+        }
+    }
+    return tab[total];
+}
+
+export function canSumTest(total: number, numbers : number[]) {
+    let plain = canSum(total,numbers);
+    let memo = canSumMemo(total,numbers);
+    let tab = canSumTab(total,numbers);
+    let passed = checkAllEqual(plain,memo,tab); 
+    console.log('canSum',passed ? 'PASS' : 'FAIL',`total: ${total}; numbers: [${numbers}]; plain:${plain}; memo:${memo}; tab:${tab};`,passed ? plain : 'FAIL');
+    if (total>0) canSumTest(total-1,numbers);
+}
+
+//console.log(canSumTab(3,[1,2])); // true
+//console.log(canSumTab(7,[6,5])); // false
+// console.log(canSumTab(7,[2,3])); // false
+// console.log(canSum(7,[2,3])); // false
+//console.log(canSumTab(300,[7,14])); // false

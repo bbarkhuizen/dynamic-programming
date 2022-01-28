@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { checkAllEqual } from './helper';
+
 /**
  * Write a function 'fib(n)' that takes in a number as an argumetn. 
  * The function should return the n-th number of the Fibonacci sequence.
@@ -56,4 +59,33 @@ export function fibonacci(n: number) : number { // O(2^n) S(n)
     return fibArray[n];
 }
 
+// -------------------------------------------------------------------------------------------------------------------------
+export function fibonacciTest(max: number){
+    let plain = fibonacci(max); let memo = fibonacciMemo(max); let tab = fibonacciTab(max);
+    let pass = checkAllEqual(plain,memo,tab);
+    console.log('fibonacci',pass ? 'PASS' : 'FAIL',`index:${max}; plain:${plain}; memo:${memo}; tab:${tab}`,pass ? plain : '');
+    if (max>0) fibonacciTest(max-1);
+}
 
+export function fibonacciTime(max : number){
+    console.log(`timing the fib implementations to the max of ${max}`);
+    let now = moment();
+    for (let i = 0; i<=max; i++){
+        fibonacci(i);
+    }
+    console.log('fibonacci:',moment(moment().diff(now)).format('mm:ss.SSSSSSS'));  
+
+    now = moment();
+    for (let i = 0; i<=max; i++){
+        fibonacciMemo(i);
+    }
+    console.log('fibonacciMemo:',moment(moment().diff(now)).format('mm:ss.SSSSSSS'));    
+    
+    now = moment();
+    for (let i = 0; i<=max; i++){
+        fibonacciTab(i);
+    }
+    console.log('fibonacciTab:',moment(moment().diff(now)).format('mm:ss.SSSSSSS'));    
+    
+    console.log('done timing.')
+}

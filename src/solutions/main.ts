@@ -16,4 +16,7 @@ import * as dp from './dynamic-programming-examples'
 //dp.canSumTest(12,[6,7,8,9]);
 
 // HOW SUM
-dp.howSumTest(7,[5,3,4])// 3,4
+//dp.howSumTest(7,[5,3,4])// 3,4
+
+// BEST SUM 
+console.log(dp.bestSumTab(8,[2,3,5]))// 3,4

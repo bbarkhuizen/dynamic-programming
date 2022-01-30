@@ -74,18 +74,37 @@
     return shortestCombination;
 }
 
-// console.log((new Date()).toTimeString());
+/**
+ * What combination of numbers can add up to become targetSum using tabulation.
+ *      m = target sum; n = numbers.length
+ *      O(n^m * m) time
+ *      O(m) space
+ * @param targetSum The target of the addition
+ * @param numbers number of values to add
+ * @returns the array of valid options.
+ */
+ export function bestSumTab(targetSum: number, numbers:number[]) : number[] | null {
+    
+    let table : (number[] | null)[] = (new Array<number[]|null>(targetSum+1)).fill(null);
+    table[0] = [];
+   
+    for (let i = 0; i<= targetSum; i++){
+        if (table[i] != null) {
 
-// console.log('bestSum',bestSum(7,[5, 3, 4, 7])); // [7]
-// console.log('bestSum',bestSum(8,[2, 3, 5])); // [3,5]
-// console.log('bestSum',bestSum(8,[1, 4, 5])); // [4,4]
-// console.log('BestSum',bestSum(300,[7, 14]));
-// //console.log('BestSum',bestSum(100,[1, 2, 5, 25]));
-// console.log((new Date()).toTimeString());
+            for (let n of numbers) {
+                const newArray = [...table[i]!,n];
+                const forwardIndex = i+n;
+                if (forwardIndex<= targetSum) {
+                    if (table[forwardIndex]==null) {
+                        table[forwardIndex] = newArray;
+                    } else if(table[forwardIndex]!.length > newArray.length) {
+                        table[forwardIndex] = newArray;
+                    }
+                }
+            }
+        }
+    }
+    console.log(table);
+    return table[targetSum];
 
-// console.log('bestSumMemo',bestSumMemo(7,[5, 3, 4, 7])); // [7]
-// console.log('bestSumMemo',bestSumMemo(8,[2, 3, 5])); // [3,5]
-// console.log('bestSumMemo',bestSumMemo(8,[1, 4, 5])); // [4,4]
-// console.log('BestSumMemo',bestSumMemo(300,[7, 14]));
-// //console.log('BestSumMemo',bestSumMemo(100,[1, 2, 5, 25]));
-// console.log((new Date()).toTimeString());
+}

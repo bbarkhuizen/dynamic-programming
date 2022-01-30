@@ -4,3 +4,4 @@ export function checkAllEqual(...args :any[]) {
     }
     return true;
 }
+

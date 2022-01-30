@@ -1,3 +1,5 @@
+import moment from 'moment';
+import { checkAllEqual } from './helper';
 /**
  * Write a function that takes in a targetSum and an array of numbers as arguments.
  * 
@@ -6,15 +8,6 @@
  * If there are multiple combinations possible, you may return any single one. 
  */
 
-/**
- * What combination of numbers can add up to become targetSum.
- *      m = target sum; n = numbers.length
- *      O(n^m * m) time
- *      O(m) space
- * @param targetSum The target of the addition
- * @param numbers number of values to add
- * @returns the array of valid options.
- */
  export function howSum(targetSum: number, numbers:number[]) : number[] | null{
     if (targetSum === 0) return [];
     if (targetSum < 0) return null;
@@ -55,12 +48,38 @@
     return memo[targetSum];
 }
 
-// console.log('howSum',howSum(7,[2,3]));
-// console.log('howSumMemo',howSumMemo(7,[2,3]));
+/**
+ * What combination of numbers can add up to become targetSum using tabulation.
+ *      m = target sum; n = numbers.length
+ *      O(n^m * m) time
+ *      O(m) space
+ * @param targetSum The target of the addition
+ * @param numbers number of values to add
+ * @returns the array of valid options.
+ */
+ export function howSumTab(targetSum: number, numbers:number[]) : number[] | null {
+    let table : (number[] | null)[] = (new Array<number[]|null>(targetSum+1)).fill(null);
+    table[0] = [];
+   
+    for (let i = 0; i<= targetSum; i++){
+        if (table[i] !== null) {
+            
+            for (let number of numbers) {
+                if ((number+i)<=targetSum){
+                    table[number+i] = [...(table[i] as number[]),number];
+                }
+            }
+        }
+    }
+    return table[targetSum];
 
-// console.log('howSum',howSum(7,[5,3,4,7]));
-// console.log('howSumMemo',howSumMemo(7,[5,3,4,7]));
+}
 
-// console.log('howSum',howSum(300,[7, 14]));
-// console.log('howSumMemo',howSumMemo(300,[7, 14]));
-
+export function howSumTest(total: number, numbers : number[]) {
+    let plain = howSum(total,numbers);
+    let memo = howSumMemo(total,numbers);
+    let tab = howSumTab(total,numbers);
+    
+    console.log(`total: ${total}; numbers: [${numbers}]; plain:${plain}; memo:${memo}; tab:${tab};`);
+    if (total>0) howSumTest(total-1,numbers);
+}

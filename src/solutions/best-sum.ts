@@ -94,10 +94,10 @@
             for (let n of numbers) {
                 const newArray = [...table[i]!,n];
                 const forwardIndex = i+n;
-                if (forwardIndex<= targetSum) {
-                    if (table[forwardIndex]==null) {
+                if (forwardIndex<= targetSum) { // don't go out of bounds.
+                    if (table[forwardIndex]==null) { // if the foward array is null then replace with new array.
                         table[forwardIndex] = newArray;
-                    } else if(table[forwardIndex]!.length > newArray.length) {
+                    } else if(table[forwardIndex]!.length > newArray.length) { // if the length of the forward array is greater than the new array, then reaplace
                         table[forwardIndex] = newArray;
                     }
                 }

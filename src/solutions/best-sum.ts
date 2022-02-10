@@ -44,7 +44,7 @@
 /**
  * Find the best, least, amount of numbers to sum up to the targetSum, if any.
  *      m = targetSum; n = numbers.length
- *      O(n^m * m) time
+ *      O(m^2 * n) time
  *      O(m * m) = O(m^2) space
  * @param targetSum target to sum up to.
  * @param numbers combination of numbers to analyze.
@@ -77,7 +77,7 @@
 /**
  * What combination of numbers can add up to become targetSum using tabulation.
  *      m = target sum; n = numbers.length
- *      O(n^m * m) time
+ *      O(m^2 *) time
  *      O(m) space
  * @param targetSum The target of the addition
  * @param numbers number of values to add

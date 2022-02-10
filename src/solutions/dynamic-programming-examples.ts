@@ -7,4 +7,6 @@ export * from './count-construct';
 export * from './fibonacci';
 export * from './grid-traveller';
 export * from './how-sum';
+export * from './two-sum';
+
 

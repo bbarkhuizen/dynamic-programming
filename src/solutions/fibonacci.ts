@@ -89,3 +89,25 @@ export function fibonacciTime(max : number){
     
     console.log('done timing.')
 }
+
+function fib_(index :number) {
+    let a = 0;
+    let b = 1;
+    let c,i : number
+
+    for (i =0; i<=index; i++){
+        c = a+b;
+        a=b;
+        b=c;
+        if (i== index){
+            return c;
+        }
+    }
+}
+
+console.log(fib_(100));
+//console.log(fib_(1));
+//console.log(fib_(2));
+//console.log(fib_(3));
+//console.log(fib_(4));
+//console.log(fib_(5));

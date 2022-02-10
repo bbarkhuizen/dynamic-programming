@@ -32,8 +32,8 @@
 
 /**
  * Can you construct the target string a combination of items in the wordbank.
- *      O(n^m * m) time
- *      O(m*m) space
+ *      O(n * m^2) time
+ *      O(m^2) space
  * @param target target string to build.
  * @param wordbank bank of words to use to build target.
  * @param memo memo to cache results.

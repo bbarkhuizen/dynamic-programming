@@ -105,7 +105,6 @@ function fib_(index :number) {
     }
 }
 
-console.log(fib_(100));
 //console.log(fib_(1));
 //console.log(fib_(2));
 //console.log(fib_(3));

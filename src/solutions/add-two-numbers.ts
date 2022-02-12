@@ -15,6 +15,8 @@
         Output:      [8,9,9,9,0,0,0,1]
 */
 
+import { listenerCount } from "process";
+
 
 export class ListNode {
      val: number
@@ -26,7 +28,7 @@ export class ListNode {
      
  }
 
- function createListNodes(nums : number[]) : ListNode | null{
+ export function createListNodes(nums : number[]) : ListNode | null{
     if (nums.length <= 0) return null;
 
     let result : ListNode = new ListNode(nums[0]);
@@ -38,23 +40,17 @@ export class ListNode {
     return result;
  }
 
-function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
-    if (l1 == null && l2 == null) return null;
-
-    let c1 : ListNode | null = l1;
-    let c2 : ListNode | null = l1;
-    let result : ListNode | null = null;
+export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+    return add(l1,l2,0);
     
-
-    while (c1 !== null || c2 !== null) {
-        let sum = (c1 != null ? c1.val : 0) + (c2 !=null? c2.val : 0);
+    function add(l1: ListNode | null, l2: ListNode | null, carry : number) : ListNode | null {
+        const sum = (l1 && l1.val || 0) + (l2 && l2.val || 0) + carry;
+        const car = Math.floor(sum / 10);
+        if (l1 || l2 || carry) {
+            return new ListNode(sum % 10,add(l1 && l1.next, l2 && l2.next,car));
+        }
+        return null;
+        
     }
-    
-    return null;
-
 };
 
-let ln1 = createListNodes([9]);
-let ln2 = createListNodes([9]);
-console.log(ln1);
-console.log(ln2);

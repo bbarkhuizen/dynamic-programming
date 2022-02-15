@@ -10,6 +10,8 @@ export * from './helper';
 export * from './how-sum';
 export * from './longest-substring';
 export * from './longest-palindrome';
+export * from './reverse-integer';
 export * from './two-sum';
+export * from './zigzag-conversion';
 
 

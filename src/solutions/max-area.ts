@@ -28,7 +28,6 @@ export function maxAreaBrute(height: number[]): number {
             heightLeft = height[i];
             heightRight = height[j];
             max = Math.max(max,Math.min(heightLeft,heightRight)*multiplier);
-            console.log(`i:${i} j:${j} heightLeft:${heightLeft} heightRight:${heightRight} multiplier:${multiplier} max:${max}`)
         }
     }
 

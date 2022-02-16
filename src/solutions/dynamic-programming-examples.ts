@@ -12,6 +12,7 @@ export * from './longest-substring';
 export * from './longest-palindrome';
 export * from './max-area';
 export * from './reverse-integer';
+export * from './roman-numerals';
 export * from './string-to-integer';
 export * from './two-sum';
 export * from './zigzag-conversion';
